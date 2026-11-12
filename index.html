@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A&amp;P Studio | Real Art for Real People</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=Permanent+Marker&family=Playfair+Display:ital,wght@1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#EDE8DF;--paper2:#E3DDD1;--ink:#121110;--muted:#6B655C;--red:#D2321E;--tape:rgba(232,220,180,.78)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.marker{font-family:"Permanent Marker",cursive}
+/* film grain over everything */
+body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999;opacity:.09;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(4) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-1%)}100%{transform:translate(0,0)}}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(237,232,223,.86);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--ink)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:"Archivo Black";font-size:20px;letter-spacing:-.02em}
+.logo b{color:var(--red)}
+.nav nav{display:flex;gap:8px}
+.pill{border:1.5px solid var(--ink);border-radius:999px;padding:6px 14px;font-family:"IBM Plex Mono";font-size:12px;text-transform:uppercase;letter-spacing:.06em;transition:.15s}
+.pill:hover{background:var(--ink);color:var(--paper)}
+.pill.solid{background:var(--ink);color:var(--paper)}
+.pill.solid:hover{background:var(--red);border-color:var(--red)}
+
+/* photo placeholder */
+.ph{position:relative;background:
+  radial-gradient(70% 60% at 30% 30%,rgba(255,255,255,.10),transparent 60%),
+  linear-gradient(160deg,#3c3833,#141210);overflow:hidden}
+.ph::before{content:attr(data-label);position:absolute;left:12px;bottom:10px;font:500 11px "IBM Plex Mono";letter-spacing:.1em;color:rgba(255,255,255,.55);text-transform:uppercase}
+.ph.warm{background:radial-gradient(60% 50% at 70% 35%,rgba(255,170,90,.28),transparent 60%),linear-gradient(170deg,#4a3526,#120d0a)}
+.ph.blue{background:radial-gradient(60% 60% at 40% 30%,rgba(120,170,255,.22),transparent 60%),linear-gradient(170deg,#1d2633,#07090c)}
+.ph.red{background:radial-gradient(60% 60% at 50% 40%,rgba(210,50,30,.35),transparent 60%),linear-gradient(170deg,#2a1210,#0a0505)}
+.ph.light{background:radial-gradient(70% 60% at 50% 30%,#fff,transparent 70%),linear-gradient(170deg,#cfc8bc,#8f877b)}
+.ph.light::before{color:rgba(0,0,0,.5)}
+.ph.img::before{display:none}
+.tape{position:absolute;width:110px;height:30px;background:var(--tape);box-shadow:0 1px 2px rgba(0,0,0,.15);z-index:3}
+
+/* hero */
+.hero{position:relative;padding:60px 0 40px;min-height:92vh}
+.slop{font-family:"Anton";text-transform:uppercase;line-height:.86;letter-spacing:-.01em;font-size:clamp(78px,15vw,230px);position:relative;z-index:2}
+.slop .l2{display:block;padding-left:9vw}
+.slop .cut{display:inline-block;padding:0 .04em;margin:0 .01em}
+.cut.a{background:var(--ink);color:var(--paper);transform:rotate(-2deg)}
+.cut.b{font-family:"Playfair Display";font-style:italic;text-transform:none;color:var(--red)}
+.cut.c{background:var(--red);color:var(--paper);transform:rotate(3deg)}
+.cut.d{border:4px solid var(--ink);transform:rotate(-3deg)}
+.cut.e{font-family:"Archivo Black";background:#fff;transform:rotate(2deg);box-shadow:3px 3px 0 var(--ink)}
+.hero-frame{overflow:visible;position:absolute;right:3vw;top:360px;width:min(38vw,500px);aspect-ratio:16/9;transform:rotate(4deg);z-index:1;box-shadow:0 30px 60px -20px rgba(0,0,0,.45);border:10px solid #fff;border-bottom-width:42px}
+.hero-frame .cap{position:absolute;left:4px;right:4px;bottom:-34px;display:flex;justify-content:space-between;font:500 11px "IBM Plex Mono";letter-spacing:.06em;text-transform:uppercase}
+.hero-frame .tape{top:-18px;left:40%;transform:rotate(-6deg)}
+.stamp{display:inline-block;margin-top:34px;border:3px solid var(--red);color:var(--red);font-family:"Archivo Black";font-size:clamp(16px,2.2vw,26px);padding:8px 16px;transform:rotate(-3deg);letter-spacing:.02em;position:relative;z-index:2;background:rgba(237,232,223,.6)}
+.hero-row{display:flex;flex-direction:column;align-items:flex-start;gap:24px;margin-top:34px;position:relative;z-index:2;max-width:52%}
+.hero-row p{max-width:420px;font-size:17px;line-height:1.5}
+.scribble{position:absolute;right:0;bottom:-100px;white-space:nowrap;font-size:26px;color:var(--red);transform:rotate(-5deg);z-index:2}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);font-family:"Archivo Black";text-transform:uppercase;font-size:16px;padding:16px 26px;border-radius:999px;transition:.15s}
+.btn:hover{background:var(--red)}
+.btn.out{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+.btn.out:hover{background:var(--ink);color:var(--paper)}
+
+/* marquee */
+.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-block:1.5px solid var(--ink);transform:rotate(-1.2deg);margin:30px -20px 0;position:relative;z-index:3}
+.marquee div{display:flex;gap:40px;white-space:nowrap;padding:14px 0;animation:mq 28s linear infinite;font-family:"Anton";font-size:28px;text-transform:uppercase;width:max-content}
+.marquee span.r{color:var(--red)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:110px 0;position:relative}
+.h2{font-family:"Anton";text-transform:uppercase;font-size:clamp(44px,9vw,130px);line-height:.9}
+.h2 .line{display:inline-block;width:.9em;height:.08em;background:var(--ink);vertical-align:middle;margin:0 .1em}
+
+/* collections */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:60px}
+.col{position:relative;display:block}
+.col .ph{aspect-ratio:4/5;border:10px solid #fff;box-shadow:0 20px 40px -18px rgba(0,0,0,.45);transition:.25s}
+.col:nth-child(1) .ph{transform:rotate(-2.5deg)}
+.col:nth-child(2) .ph{transform:rotate(1.5deg) translateY(40px)}
+.col:nth-child(3) .ph{transform:rotate(-1deg)}
+.col:hover .ph{transform:rotate(0) translateY(-8px)}
+.ph.merch{background:var(--ink);display:flex;align-items:center;justify-content:center}
+.ph.merch::before{display:none}
+.ph.merch span{font-family:"Anton";color:var(--paper);font-size:clamp(44px,5vw,72px);line-height:.88;text-align:center}
+.ph.merch em{font-family:"Playfair Display";font-style:italic;text-transform:none;color:var(--red)}
+.col .label{position:absolute;left:50%;top:-14px;transform:translateX(-50%) rotate(-3deg);background:var(--tape);padding:6px 16px;font-family:"Permanent Marker";font-size:20px;z-index:3;white-space:nowrap}
+.col .meta{display:flex;justify-content:space-between;margin-top:22px;font:500 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em}
+.col:nth-child(2) .meta{margin-top:62px}
+
+/* featured print */
+.feat{background:var(--ink);color:var(--paper)}
+.feat-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:60px;align-items:center}
+.print{position:relative;aspect-ratio:16/9;border:1px solid #333}
+.print .ph{position:absolute;inset:0}
+.sprockets{position:absolute;left:0;right:0;height:18px;background:repeating-linear-gradient(90deg,transparent 0 10px,var(--paper) 10px 22px,transparent 22px 32px);opacity:.85}
+.sprockets.t{top:-30px}.sprockets.b{bottom:-30px}
+.feat .mono{color:#9c958b}
+.feat h3{font-family:"Anton";text-transform:uppercase;font-size:clamp(56px,7vw,96px);line-height:.9;margin:14px 0}
+.feat p{color:#cfc9bf;line-height:1.6;max-width:420px}
+.sizes{display:flex;gap:10px;margin:26px 0}
+.sizes button{background:transparent;border:1.5px solid #5d5850;color:var(--paper);font:500 13px "IBM Plex Mono";padding:10px 16px;border-radius:999px;cursor:pointer}
+.sizes button.on{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.price{font-family:"Archivo Black";font-size:40px;margin-bottom:24px}
+.feat .btn{background:var(--red)}
+.feat .btn:hover{background:var(--paper);color:var(--ink)}
+.award{display:inline-block;margin-top:22px;font-size:22px;color:#F2C14E;transform:rotate(-3deg)}
+
+/* contact sheet */
+.sheet{background:#1a1816;padding:34px;margin-top:60px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative;box-shadow:0 30px 70px -30px rgba(0,0,0,.6)}
+.sheet .fr{position:relative}
+.sheet .ph{aspect-ratio:3/2}
+.sheet .n{font:500 10px "IBM Plex Mono";color:#E9A13B;margin-top:5px;letter-spacing:.1em}
+.circle{position:absolute;inset:-10px;border:3px solid var(--red);border-radius:50%;transform:rotate(-8deg);pointer-events:none}
+.xx{position:absolute;inset:0;pointer-events:none}
+.xx::before,.xx::after{content:"";position:absolute;left:10%;right:10%;top:50%;height:3px;background:var(--red);transform:rotate(18deg)}
+.xx::after{transform:rotate(-18deg)}
+.sheet-note{position:absolute;right:-18px;bottom:-28px;background:#fff;padding:12px 16px;transform:rotate(4deg);font-size:20px;box-shadow:0 8px 20px -8px rgba(0,0,0,.4);color:var(--ink)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.polaroid{background:#fff;padding:16px 16px 70px;box-shadow:0 30px 60px -25px rgba(0,0,0,.5);transform:rotate(-4deg);position:relative;width:100%;max-width:440px;justify-self:center}
+.polaroid .ph{aspect-ratio:1/1}
+.polaroid .cap{position:absolute;left:0;right:0;bottom:18px;text-align:center;font-size:26px}
+.polaroid .clip{position:absolute;top:-26px;right:40px;width:22px;height:70px;border:4px solid #9aa0a6;border-radius:12px;transform:rotate(12deg)}
+.beads{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.beads span{width:46px;height:46px;border-radius:50%;background:#fff;border:1.5px solid #cfc8bc;display:grid;place-items:center;font-family:"Archivo Black";font-size:20px;box-shadow:inset 0 -4px 6px rgba(0,0,0,.08),0 3px 6px -2px rgba(0,0,0,.2)}
+.beads span:nth-child(odd){transform:translateY(-6px) rotate(-6deg)}
+.beads span:nth-child(even){transform:rotate(5deg)}
+.about-grid p{font-size:19px;line-height:1.6;margin-bottom:18px;max-width:520px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink);margin-top:50px}
+.svc div{padding:26px 22px 30px;border-right:1.5px solid var(--ink)}
+.svc div:last-child{border-right:0}
+.svc .mono{color:var(--red)}
+.svc h4{font-family:"Archivo Black";font-size:24px;text-transform:uppercase;margin:12px 0 8px}
+.svc p{color:var(--muted);line-height:1.5}
+
+/* contact note */
+.contact{padding:120px 0 140px;text-align:center}
+.note{display:inline-block;background:#F4B8C1;padding:46px 54px 0;max-width:620px;width:100%;text-align:left;position:relative;transform:rotate(-1.5deg);box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.note .pin{position:absolute;top:-14px;left:50%;width:28px;height:28px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#888 60%,#444);transform:translateX(-50%)}
+.note h2{font-family:"Anton";font-size:clamp(42px,6vw,70px);line-height:.95;text-transform:uppercase}
+.note p{margin:16px 0 22px;font-size:17px}
+.note .go{font-family:"Archivo Black";text-transform:uppercase;border-bottom:3px solid var(--ink)}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);margin:40px -54px 0;border-top:2px dashed rgba(0,0,0,.35)}
+.tabs a{height:150px;border-right:2px dashed rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;font:500 14px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.08em;transition:.15s}
+.tabs a span{writing-mode:vertical-rl;transform:rotate(180deg)}
+.tabs a:last-child{border-right:0}
+.tabs a:hover{background:rgba(0,0,0,.08)}
+
+footer{border-top:1.5px solid var(--ink);padding:26px 0;font:500 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.06em}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:860px){
+  .nav nav .pill:not(.solid){display:none}
+  .hero{min-height:auto;padding-top:40px}
+  .slop .l2{padding-left:0}
+  .hero-frame{position:relative;right:auto;top:auto;width:92%;margin:40px auto 10px;display:block}
+  .scribble{bottom:-90px}
+  .hero-row{max-width:none}
+  .stamp{margin-top:100px}
+  .cols,.feat-grid,.about-grid{grid-template-columns:1fr}
+  .col:nth-child(2) .ph{transform:rotate(1.5deg)}
+  .col:nth-child(2) .meta{margin-top:22px}
+  .cols{gap:56px}
+  .sheet{grid-template-columns:repeat(2,1fr);padding:18px}
+  .svc{grid-template-columns:1fr 1fr}
+  .svc div:nth-child(2){border-right:0}
+  .svc div{border-bottom:1.5px solid var(--ink)}
+  section{padding:80px 0}
+  .note{padding:38px 26px 0}
+  .tabs{margin:34px -26px 0}
+  .tabs a{height:120px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">A<b>&amp;</b>P STUDIO</a>
+    <nav>
+      <a href="#work" class="pill">Work</a>
+      <a href="#prints" class="pill">Prints</a>
+      <a href="#about" class="pill">About</a>
+      <a href="https://a-p-studio-shop.fourthwall.com/collections/all" class="pill solid">Shop ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="mono" style="margin-bottom:22px">A&amp;P Studio · Photography &amp; prints · Dallas, TX</div>
+    <h1 class="slop" aria-label="F*ck your AI slop">
+      <span class="cut a">F*CK</span> <span class="cut b">your</span><br>
+      <span class="l2"><span class="cut c">AI</span> <span class="cut d">SL</span><span class="cut e">OP</span></span>
+    </h1>
+
+    <figure class="hero-frame ph img" style="background:#111 url(img/dallas-warehouse.jpg) center/cover no-repeat" role="img" aria-label="Sunlight through a Dallas warehouse, photo by Paul Valois">
+      <span class="tape"></span>
+      <figcaption class="cap"><span>From the Dallas collection</span><span>P. Valois</span></figcaption>
+      <div class="scribble marker">South of Dallas ↑</div>
+    </figure>
+
+    <div class="stamp">Photography · Prints · Commissions</div>
+
+    <div class="hero-row">
+      <p>Photographs of Dallas and whatever else catches Paul's eye, printed to order.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="#prints" class="btn">Shop prints →</a>
+        <a href="#about" class="btn out">Hire Paul</a>
+      </div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div>
+    <span>No prompts</span><span class="r">✶</span><span>No presets</span><span class="r">✶</span><span>Real art</span><span class="r">✶</span><span>Dallas, TX</span><span class="r">✶</span><span>Shot on location</span><span class="r">✶</span><span>Printed to order</span><span class="r">✶</span>
+    <span>No prompts</span><span class="r">✶</span><span>No presets</span><span class="r">✶</span><span>Real art</span><span class="r">✶</span><span>Dallas, TX</span><span class="r">✶</span><span>Shot on location</span><span class="r">✶</span><span>Printed to order</span><span class="r">✶</span>
+  </div></div>
+</section>
+
+<!-- COLLECTIONS -->
+<section id="work">
+  <div class="wrap">
+    <h2 class="h2">Collections </h2>
+    <div class="cols">
+      <a class="col" href="https://a-p-studio-shop.fourthwall.com/collections/all">
+        <span class="label">Dallas</span>
+        <div class="ph img" style="background:#111 url(img/dallas-buildings.jpg) center/cover no-repeat"></div>
+        <div class="meta"><span>01 · The city</span><span>View ↗</span></div>
+      </a>
+      <a class="col" href="https://a-p-studio-shop.fourthwall.com/collections/all">
+        <span class="label">From the Depths</span>
+        <div class="ph img" style="background:#111 url(img/depths-carp.jpg) center/cover no-repeat"></div>
+        <div class="meta"><span>02 · Series</span><span>View ↗</span></div>
+      </a>
+      <a class="col" href="https://a-p-studio-shop.fourthwall.com/collections/all">
+        <span class="label">Merch</span>
+        <div class="ph img" style="background:#fff url(img/merch-hat.jpg) center/cover no-repeat" role="img" aria-label="Black A&amp;P Studio snapback hat"></div>
+        <div class="meta"><span>03 · A&amp;P Studio hat</span><span>View ↗</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRINT -->
+<section id="prints" class="feat">
+  <div class="wrap feat-grid">
+    <div class="print">
+      <div class="sprockets t"></div>
+      <div class="ph img" style="background:#111 url(img/searching.jpg) center/cover no-repeat" role="img" aria-label="Searching: two figures and a dog on a pier at night"></div>
+      <div class="sprockets b"></div>
+    </div>
+    <div>
+      <div class="mono">Featured print · 16:9 cinematic film still</div>
+      <h3>Searching</h3>
+      <p>From Paul's YoungArts award-winning portfolio. Shot as a 16:9 film still.</p>
+      <div class="marker award">★ YoungArts award winner</div>
+      <div class="sizes">
+        <button class="on">12" × 18"</button>
+        <button>18" × 24"</button>
+      </div>
+      <div class="price">$90</div>
+      <a href="https://a-p-studio-shop.fourthwall.com/collections/all" class="btn">Add to cart ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SHEET -->
+<section>
+  <div class="wrap">
+    <h2 class="h2">Contact sheet</h2>
+    <p class="mono" style="margin-top:16px;color:var(--muted)">More from Dallas and From the Depths.</p>
+    <div class="sheet">
+      <div class="fr"><div class="ph img" style="background:#111 url(img/dallas-green.jpg) center/cover no-repeat"></div><div class="n">▸ 01A</div></div>
+      <div class="fr"><div class="ph img" style="background:#111 url(img/depths-bass.jpg) center/cover no-repeat"></div><div class="n">▸ 02A</div><span class="circle"></span></div>
+      <div class="fr"><div class="ph img" style="background:#111 url(img/dallas-steel.jpg) center/cover no-repeat"></div><div class="n">▸ 03A</div></div>
+      <div class="fr"><div class="ph img" style="background:#111 url(img/depths-tilapia.jpg) center/cover no-repeat"></div><div class="n">▸ 04A</div></div>
+      <div class="fr"><div class="ph img" style="background:#111 url(img/dallas-warehouse.jpg) center/cover no-repeat"></div><div class="n">▸ 05A</div></div>
+      <div class="fr"><div class="ph img" style="background:#111 url(img/depths-catfish.jpg) center/cover no-repeat"></div><div class="n">▸ 06A</div></div>
+      <div class="fr"><div class="ph img" style="background:#111 url(img/depths-glass.jpg) center/cover no-repeat"></div><div class="n">▸ 07A</div></div>
+      <div class="fr"><div class="ph img" style="background:#111 url(img/dallas-buildings.jpg) center/cover no-repeat"></div><div class="n">▸ 08A</div><span class="circle"></span></div>
+      <div class="sheet-note marker">prints in<br>the shop →</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--paper2);border-block:1.5px solid var(--ink)">
+  <div class="wrap about-grid">
+    <div class="polaroid">
+      <span class="clip"></span>
+      <div class="ph img" style="background:#111 url(img/paul.jpg) center 30%/cover no-repeat"></div>
+      <div class="cap marker">Paul Valois</div>
+    </div>
+    <div>
+      <div class="beads" aria-label="Paul"><span>P</span><span>A</span><span>U</span><span>L</span></div>
+      <p><b>Paul Valois</b> is a photographer born and raised in Dallas. He's been shooting for over ten years and won a YoungArts award for his portfolio.</p>
+      <p>A&amp;P Studio is his shop for prints of his personal work. He also shoots for brands, restaurants and people.</p>
+      <div class="tags"><span class="pill">Advertising</span><span class="pill">Product</span><span class="pill">Food</span><span class="pill">Portraits</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section style="padding-bottom:40px">
+  <div class="wrap">
+    <h2 class="h2">Hire Paul</h2>
+    <div class="svc">
+      <div><span class="mono">01</span><h4>Advertising</h4><p>Photos for ads, campaigns and websites.</p></div>
+      <div><span class="mono">02</span><h4>Product</h4><p>Product photos for online stores and catalogs.</p></div>
+      <div><span class="mono">03</span><h4>Food</h4><p>Menus, dishes and restaurant spaces.</p></div>
+      <div><span class="mono">04</span><h4>Portraits</h4><p>Headshots and portraits, in studio or on location.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="note">
+    <span class="pin"></span>
+    <h2>Got a project<br>in mind?</h2>
+    <p>Send Paul a message about a shoot, a print or a collab.</p>
+    <a href="https://a-p-studio-shop.fourthwall.com/contact" class="go">Start a project ↗</a>
+    <div class="tabs">
+      <a href="https://a-p-studio-shop.fourthwall.com/contact"><span>Email</span></a>
+      <a href="https://a-p-studio-shop.fourthwall.com/collections/all"><span>Shop</span></a>
+      <a href="#"><span>Instagram</span></a>
+      <a href="#"><span>TikTok</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 A&amp;P Studio</span><span>Real art for real people</span><span>Dallas, TX</span></div></footer>
+
+<script>
+document.querySelectorAll('.sizes button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.sizes button').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');
+  });
+});
+</script>
+</body>
+</html>
