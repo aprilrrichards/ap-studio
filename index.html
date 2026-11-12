@@ -137,7 +137,7 @@ section{padding:110px 0;position:relative}
 
 /* services */
 .svc{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink);margin-top:50px}
-.svc div{padding:26px 22px 30px;border-right:1.5px solid var(--ink)}
+.svc div{padding:26px 22px 30px;border-right:1.5px solid var(--ink);min-width:0;overflow-wrap:anywhere}
 .svc div:last-child{border-right:0}
 .svc .mono{color:var(--red)}
 .svc h4{font-family:"Archivo Black";font-size:24px;text-transform:uppercase;margin:12px 0 8px}
@@ -172,9 +172,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .col:nth-child(2) .meta{margin-top:22px}
   .cols{gap:56px}
   .sheet{grid-template-columns:repeat(2,1fr);padding:18px}
-  .svc{grid-template-columns:1fr 1fr}
-  .svc div:nth-child(2){border-right:0}
-  .svc div{border-bottom:1.5px solid var(--ink)}
+  .svc{grid-template-columns:1fr}
+  .svc div{border-right:0;border-bottom:1.5px solid var(--ink);padding:22px 4px 24px}
+  .svc h4{font-size:22px}
   section{padding:80px 0}
   .note{padding:38px 26px 0}
   .tabs{margin:34px -26px 0}
