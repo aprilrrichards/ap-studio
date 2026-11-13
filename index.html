@@ -49,7 +49,7 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
 .hero .tg{position:absolute;font-size:clamp(38px,5vw,74px);color:var(--yel);transform:rotate(-6deg)}
 .hero .tg.a{right:7%;bottom:205px}
 .cut{position:absolute;z-index:2;border:5px solid var(--paper);box-shadow:0 18px 40px -12px rgba(0,0,0,.6)}
-.cut.c1{width:min(24vw,300px);aspect-ratio:4/3;right:5%;top:110px;transform:rotate(3deg)}
+.cut.c1{width:min(20vw,250px);aspect-ratio:3/4;right:5%;top:110px;transform:rotate(3deg)}
 .cut.c2{width:min(15vw,190px);aspect-ratio:3/4;right:calc(5% + min(19vw,240px));top:250px;transform:rotate(-5deg)}
 .cut.c3{width:min(13vw,160px);aspect-ratio:1;left:4%;top:150px;transform:rotate(-4deg)}
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:Anton;text-transform:uppercase;font-size:20px;letter-spacing:.03em;padding:14px 24px;border-radius:999px;background:var(--paper);color:var(--ink);transition:.15s}
@@ -125,12 +125,17 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
 /* gallery */
 .gallery{padding:110px 0 100px}
 .gallery .sec-head h2{color:var(--paper)}
-.mosaic{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:8px}
-.mosaic .im{border-radius:3px;transition:.25s;filter:saturate(.95)}
-.mosaic .im:hover{transform:scale(1.02);filter:saturate(1.15);z-index:2}
-.g1{grid-column:span 2;grid-row:span 3}.g2{grid-column:span 2;grid-row:span 2}.g3{grid-column:span 2;grid-row:span 2}
-.g4{grid-column:span 1;grid-row:span 1}.g5{grid-column:span 1;grid-row:span 1}.g6{grid-column:span 2;grid-row:span 1}
-.g7{grid-column:span 2;grid-row:span 2}.g8{grid-column:span 2;grid-row:span 2}.g9{grid-column:span 2;grid-row:span 2}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:-20px 0 26px}
+.filters button{background:transparent;border:1.5px solid #4a4640;color:var(--muted);font:500 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.08em;padding:8px 14px;border-radius:999px;cursor:pointer}
+.filters button.on,.filters button:hover{border-color:var(--paper);color:var(--paper)}
+.filters button.on{background:var(--red);border-color:var(--red)}
+.mosaic{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:140px;grid-auto-flow:dense;gap:8px}
+.mosaic .m{border-radius:3px;transition:transform .25s,filter .25s,opacity .3s;background-position:center}
+.mosaic .m:hover{transform:scale(1.02);filter:saturate(1.15);z-index:2}
+.mosaic .m.big{grid-column:span 3;grid-row:span 3}
+.mosaic .m.tall{grid-row:span 2}
+.mosaic .m.wide{grid-column:span 2}
+.mosaic .m.hide{display:none}
 
 /* hire list */
 .hire{padding:110px 0 120px;position:relative}
@@ -190,14 +195,14 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;paddin
   .card .lbl b{font-size:20px}
   .cards .card:last-child{grid-column:1/-1}
   .cards .card:last-child .im{aspect-ratio:16/10}
-  .mosaic .g9{grid-column:span 2!important}
   .about-grid{grid-template-columns:1fr;gap:40px}
   .side-stack{height:340px}
   .cards{grid-template-columns:1fr 1fr}
   .card.wide{grid-column:1/-1}
-  .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}
-  .mosaic .im{grid-column:span 1!important;grid-row:span 2!important}
-  .mosaic .g1,.mosaic .g6{grid-column:span 2!important}
+  .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:110px}
+  .mosaic .m{grid-column:span 1!important;grid-row:span 2!important}
+  .mosaic .m.big,.mosaic .m.wide{grid-column:span 2!important}
+  .filters{margin-top:-10px}
   .row,.row:nth-child(even){grid-template-columns:44px 1fr 40px}
   .row .im{display:none}
   .row:nth-child(even) h3{text-align:left;order:2}
@@ -219,9 +224,9 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;paddin
     <nav><a href="#top" class="on">Home</a><a href="#about">About</a><a href="#prints">Prints</a><a href="#gallery">Gallery</a><a href="#hire">Hire</a></nav>
     <a href="https://a-p-studio-shop.fourthwall.com/collections/all" class="shop">Shop ↗</a>
   </div>
-  <div class="im cut c1" style="background-image:url(img/dallas-green.jpg);background-position:center" role="img" aria-label="Green wall in Dallas"></div>
-  <div class="im cut c2" style="background-image:url(img/depths-carp.jpg);background-position:center" role="img" aria-label="Carp in a tank"></div>
-  <div class="im cut c3" style="background-image:url(img/dallas-buildings.jpg);background-position:center" role="img" aria-label="Downtown Dallas buildings"></div>
+  <div class="im cut c1" style="background-image:url(img/street-escalator.jpg);background-position:center 40%" role="img" aria-label="Escalator under fluorescent light"></div>
+  <div class="im cut c2" style="background-image:url(img/still-bear.jpg);background-position:center" role="img" aria-label="Teddy bear wrapped in wire"></div>
+  <div class="im cut c3" style="background-image:url(img/street-reflection.jpg);background-position:center" role="img" aria-label="Building reflected in glass"></div>
   <div class="hero-in">
     <span class="tag tg a">south of dallas</span>
     <h1 class="big">F*ck your<br><span class="r">AI</span> <span class="slop">slop</span></h1>
@@ -242,9 +247,9 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;paddin
     <span class="tag tg t1">no prompts</span>
     <span class="tag tg t2">dallas</span>
     <span class="tag tg t3">by hand</span>
-    <div class="pol p1"><div class="im " style="background-image:url(img/dallas-steel.jpg);background-position:center" role="img" aria-label="Rusted steel at sunset"></div></div>
-    <div class="pol p2"><div class="im " style="background-image:url(img/depths-tilapia.jpg);background-position:center" role="img" aria-label="Fish pressed against glass"></div></div>
-    <div class="pol p3"><div class="im " style="background-image:url(img/searching.jpg);background-position:center" role="img" aria-label="Pier at night"></div></div>
+    <div class="pol p1"><div class="im " style="background-image:url(img/street-steps.jpg);background-position:center 70%" role="img" aria-label="Man resting on stone steps"></div></div>
+    <div class="pol p2"><div class="im " style="background-image:url(img/still-stone.jpg);background-position:center" role="img" aria-label="Stone resting on water"></div></div>
+    <div class="pol p3"><div class="im " style="background-image:url(img/night-carport.jpg);background-position:center" role="img" aria-label="Carport at night"></div></div>
   </div>
 </section>
 
@@ -254,15 +259,15 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;paddin
 <section class="paper about" id="about">
   <span class="tag ghost" aria-hidden="true">the why</span>
   <div class="wrap about-grid">
-    <div class="paul"><span class="tape"></span><div class="im " style="background-image:url(img/paul.jpg);background-position:center 30%" role="img" aria-label="Paul Valois"></div><div class="cap">Paul Valois</div></div>
+    <div class="paul"><span class="tape"></span><div class="im " style="background-image:url(img/paul-portrait.jpg);background-position:center 35%" role="img" aria-label="Portrait of Paul Valois"></div><div class="cap">Paul Valois</div></div>
     <div>
       <div class="mono muted" style="margin-bottom:12px">About</div>
       <h2 class="big">Born and raised in Dallas<span class="tag">behind the lens</span></h2>
-      <p style="margin-top:22px">Paul Valois has been shooting for over ten years and won a YoungArts award for his portfolio.</p>
+      <p style="margin-top:22px">Paul Valois has been shooting for over ten years, from street and night photography to staged scenes and still life. He won a YoungArts award for his portfolio.</p>
       <p>A&amp;P Studio is his shop for prints of his personal work. He also shoots for brands, restaurants and people.</p>
       <div class="chips"><span class="chip">Advertising</span><span class="chip">Product</span><span class="chip">Food</span><span class="chip">Portraits</span></div>
     </div>
-    <div class="side-stack"><div class="im s1" style="background-image:url(img/dallas-buildings.jpg);background-position:center" role="img" aria-label="Downtown Dallas"></div><div class="im s2" style="background-image:url(img/depths-bass.jpg);background-position:center" role="img" aria-label="Striped bass in a tank"></div></div>
+    <div class="side-stack"><div class="im s1" style="background-image:url(img/cine-kitchen.jpg);background-position:center" role="img" aria-label="Staged scene in a dark kitchen"></div><div class="im s2" style="background-image:url(img/paul.jpg);background-position:center 30%" role="img" aria-label="Paul Valois"></div></div>
   </div>
 </section>
 
@@ -284,17 +289,31 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;paddin
 <!-- GALLERY -->
 <section class="gallery spray-bg" id="gallery">
   <div class="wrap">
-    <div class="sec-head"><h2 class="big">The gallery</h2><span class="mono" style="color:var(--muted)">Dallas · From the Depths</span></div>
+    <div class="sec-head"><h2 class="big">The gallery</h2><span class="mono" style="color:var(--muted)">22 frames</span></div>
+    <div class="filters"><button data-f="all" class=on>All</button><button data-f="street">Street</button><button data-f="still">Still life</button><button data-f="cine">Cinematic</button><button data-f="night">Night</button><button data-f="depths">From the Depths</button></div>
     <div class="mosaic">
-      <div class="im g1" style="background-image:url(img/searching.jpg);background-position:40% center" role="img" aria-label="Pier at night"></div>
-      <div class="im g2" style="background-image:url(img/dallas-green.jpg);background-position:center" role="img" aria-label="Green wall"></div>
-      <div class="im g3" style="background-image:url(img/depths-tilapia.jpg);background-position:center" role="img" aria-label="Tilapia"></div>
-      <div class="im g4" style="background-image:url(img/dallas-steel.jpg);background-position:center" role="img" aria-label="Rusted steel"></div>
-      <div class="im g5" style="background-image:url(img/depths-glass.jpg);background-position:center" role="img" aria-label="Fogged glass"></div>
-      <div class="im g6" style="background-image:url(img/dallas-warehouse.jpg);background-position:center" role="img" aria-label="Warehouse light"></div>
-      <div class="im g7" style="background-image:url(img/depths-catfish.jpg);background-position:center" role="img" aria-label="Catfish"></div>
-      <div class="im g8" style="background-image:url(img/dallas-buildings.jpg);background-position:center" role="img" aria-label="Downtown buildings"></div>
-      <div class="im g9" style="background-image:url(img/depths-bass.jpg);background-position:center" role="img" aria-label="Striped bass"></div>
+      <div class="im m big" data-cat="cine" style="background-image:url(img/cine-window.jpg)" role="img" aria-label="Two girls at a window, staged scene"></div>
+      <div class="im m tall" data-cat="street" style="background-image:url(img/street-escalator.jpg)" role="img" aria-label="Escalator"></div>
+      <div class="im m " data-cat="still" style="background-image:url(img/still-bear.jpg)" role="img" aria-label="Bear in wire"></div>
+      <div class="im m tall" data-cat="night" style="background-image:url(img/night-mountain.jpg)" role="img" aria-label="Mountain under stars"></div>
+      <div class="im m wide" data-cat="night" style="background-image:url(img/searching.jpg)" role="img" aria-label="Pier at night"></div>
+      <div class="im m tall" data-cat="street" style="background-image:url(img/street-billboard.jpg)" role="img" aria-label="Billboard building"></div>
+      <div class="im m " data-cat="still" style="background-image:url(img/still-stone.jpg)" role="img" aria-label="Stone on water"></div>
+      <div class="im m " data-cat="depths" style="background-image:url(img/depths-carp.jpg)" role="img" aria-label="Carp"></div>
+      <div class="im m wide" data-cat="cine" style="background-image:url(img/cine-kitchen.jpg)" role="img" aria-label="Dark kitchen"></div>
+      <div class="im m tall" data-cat="street" style="background-image:url(img/street-steps.jpg)" role="img" aria-label="Stone steps"></div>
+      <div class="im m tall" data-cat="still" style="background-image:url(img/still-sticks.jpg)" role="img" aria-label="Sticks and shadows"></div>
+      <div class="im m wide" data-cat="night" style="background-image:url(img/night-lift.jpg)" role="img" aria-label="Ski lift at night"></div>
+      <div class="im m wide" data-cat="street" style="background-image:url(img/dallas-warehouse.jpg)" role="img" aria-label="Warehouse light"></div>
+      <div class="im m " data-cat="depths" style="background-image:url(img/depths-tilapia.jpg)" role="img" aria-label="Tilapia"></div>
+      <div class="im m tall" data-cat="street" style="background-image:url(img/street-grocery.jpg)" role="img" aria-label="Grocery aisle"></div>
+      <div class="im m " data-cat="still" style="background-image:url(img/still-wire.jpg)" role="img" aria-label="Wire sculpture"></div>
+      <div class="im m wide" data-cat="night" style="background-image:url(img/night-carport.jpg)" role="img" aria-label="Carport at night"></div>
+      <div class="im m " data-cat="street" style="background-image:url(img/street-reflection.jpg)" role="img" aria-label="Reflection"></div>
+      <div class="im m wide" data-cat="depths" style="background-image:url(img/depths-bass.jpg)" role="img" aria-label="Bass"></div>
+      <div class="im m " data-cat="street" style="background-image:url(img/dallas-green.jpg)" role="img" aria-label="Green wall"></div>
+      <div class="im m " data-cat="depths" style="background-image:url(img/depths-catfish.jpg)" role="img" aria-label="Catfish"></div>
+      <div class="im m " data-cat="street" style="background-image:url(img/dallas-buildings.jpg)" role="img" aria-label="Downtown"></div>
     </div>
   </div>
 </section>
@@ -306,10 +325,10 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;paddin
   <div class="wrap">
     <div class="sec-head"><h2 class="big">Hire Paul<span class="tag">for hire</span></h2><a href="https://a-p-studio-shop.fourthwall.com/contact">Ask about a shoot ↗</a></div>
     <div class="rows">
-      <a class="row" href="https://a-p-studio-shop.fourthwall.com/contact"><span class="n">01</span><h3>Advertising<small>Photos for ads, campaigns and websites.</small></h3><div class="im " style="background-image:url(img/dallas-green.jpg);background-position:center" role="img" aria-label=""></div><span class="arr">↗</span></a>
-      <a class="row" href="https://a-p-studio-shop.fourthwall.com/contact"><span class="n">02</span><div class="im " style="background-image:url(img/merch-hat.jpg);background-position:center" role="img" aria-label=""></div><h3>Product<small>Product photos for online stores and catalogs.</small></h3><span class="arr">↗</span></a>
-      <a class="row" href="https://a-p-studio-shop.fourthwall.com/contact"><span class="n">03</span><h3>Food<small>Menus, dishes and restaurant spaces.</small></h3><div class="im " style="background-image:url(img/depths-tilapia.jpg);background-position:center" role="img" aria-label=""></div><span class="arr">↗</span></a>
-      <a class="row" href="https://a-p-studio-shop.fourthwall.com/contact"><span class="n">04</span><div class="im " style="background-image:url(img/paul.jpg);background-position:center 30%" role="img" aria-label=""></div><h3>Portraits<small>Headshots and portraits, in studio or on location.</small></h3><span class="arr">↗</span></a>
+      <a class="row" href="https://a-p-studio-shop.fourthwall.com/contact"><span class="n">01</span><h3>Advertising<small>Photos for ads, campaigns and websites.</small></h3><div class="im " style="background-image:url(img/cine-kitchen.jpg);background-position:center" role="img" aria-label=""></div><span class="arr">↗</span></a>
+      <a class="row" href="https://a-p-studio-shop.fourthwall.com/contact"><span class="n">02</span><div class="im " style="background-image:url(img/still-stone.jpg);background-position:center 45%" role="img" aria-label=""></div><h3>Product<small>Product photos for online stores and catalogs.</small></h3><span class="arr">↗</span></a>
+      <a class="row" href="https://a-p-studio-shop.fourthwall.com/contact"><span class="n">03</span><h3>Food<small>Menus, dishes and restaurant spaces.</small></h3><div class="im " style="background-image:url(img/street-grocery.jpg);background-position:center 45%" role="img" aria-label=""></div><span class="arr">↗</span></a>
+      <a class="row" href="https://a-p-studio-shop.fourthwall.com/contact"><span class="n">04</span><div class="im " style="background-image:url(img/paul-portrait.jpg);background-position:center 40%" role="img" aria-label=""></div><h3>Portraits<small>Headshots and portraits, in studio or on location.</small></h3><span class="arr">↗</span></a>
     </div>
   </div>
 </section>
@@ -340,5 +359,11 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;paddin
 <div class="foot-word"><div class="big">A&amp;P ~ Studio ~ Dallas</div></div>
 <footer><span>© 2026 A&amp;P Studio</span><span>Photography &amp; prints by Paul Valois</span><span>Dallas, TX</span></footer>
 </div>
+<script>
+document.querySelectorAll('.filters button').forEach(function(b){b.addEventListener('click',function(){
+ document.querySelectorAll('.filters button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+ var f=b.dataset.f;document.querySelectorAll('.mosaic .m').forEach(function(m){m.classList.toggle('hide',f!=='all'&&m.dataset.cat!==f)});
+})});
+</script>
 </body>
 </html>
