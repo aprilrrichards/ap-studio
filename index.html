@@ -6,7 +6,7 @@
 <title>A&amp;P Studio | Real Art for Real People</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Sedgwick+Ave+Display&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=Permanent+Marker&family=Playfair+Display:ital,wght@1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=Permanent+Marker&family=Playfair+Display:ital,wght@1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--paper:#EDE8DF;--paper2:#E3DDD1;--ink:#121110;--muted:#6B655C;--red:#D2321E;--tape:rgba(232,220,180,.78)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -184,58 +184,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .tabs{margin:34px -26px 0}
   .tabs a{height:120px}
 }
-
-/* ---------- graffiti layer ---------- */
-.tag{position:absolute;pointer-events:none;overflow:visible;z-index:1}
-.tag text{font-family:"Sedgwick Ave Display","Permanent Marker",cursive}
-.spray{filter:url(#spray)}
-.spray-soft{filter:url(#spraySoft)}
-.hero-tag{left:-2%;top:70px;width:min(1000px,104%);z-index:0;opacity:.13;transform:rotate(-7deg)}
-.hero-swoosh{left:44%;top:300px;width:min(560px,46vw);z-index:3}
-.col-tag{right:2%;top:40px;width:min(380px,44vw);transform:rotate(-9deg)}
-.feat{position:relative;overflow:hidden}
-.feat-ghost{right:-4%;top:-30px;width:min(900px,90vw);opacity:.07;transform:rotate(-5deg);z-index:0}
-.feat .wrap{position:relative;z-index:2}
-.price{position:relative;display:inline-block}
-.price-ring{left:-30px;top:-26px;width:140px;height:96px}
-.hire-tag{right:4%;top:70px;width:min(340px,44vw);transform:rotate(-12deg)}
-.contact{position:relative;overflow:hidden}
-.contact-arrow{left:6%;top:70px;width:min(260px,30vw)}
-.contact-tag{right:4%;bottom:60px;width:min(320px,34vw);opacity:.85;transform:rotate(-6deg)}
-.circle,.xx{filter:url(#spray)}
-.circle{border-width:4px}
-#work,#about+section{position:relative}
-.hero,#work{overflow:hidden}
-@media(max-width:860px){
-  .hero-tag{top:110px;width:140%;left:-14%}
-  .hero-swoosh{left:30%;top:250px;width:66vw}
-  .col-tag{top:18px;right:0;width:46vw}
-  #work .h2{margin-top:40px}
-  .hire-tag{top:40px;width:50vw}
-  .contact-arrow{display:none}
-  .contact-tag{bottom:24px;width:56vw}
-}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
- <filter id="spray" x="-30%" y="-30%" width="160%" height="160%">
-  <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3" result="n"/>
-  <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" result="core"/>
-  <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="halo"/>
-  <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="1" seed="7" result="sp"/>
-  <feColorMatrix in="sp" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  3.2 0 0 0 -1.15" result="mask"/>
-  <feComposite in="halo" in2="mask" operator="in" result="dots"/>
-  <feMerge><feMergeNode in="dots"/><feMergeNode in="core"/></feMerge>
- </filter>
- <filter id="spraySoft" x="-30%" y="-30%" width="160%" height="160%">
-  <feGaussianBlur in="SourceGraphic" stdDeviation="2.2" result="b"/>
-  <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="1" seed="11" result="sp"/>
-  <feColorMatrix in="sp" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  2.6 0 0 0 -.7" result="mask"/>
-  <feComposite in="b" in2="mask" operator="in" result="d"/>
-  <feMerge><feMergeNode in="d"/><feMergeNode in="b"/></feMerge>
- </filter>
-</defs></svg>
 
 <header>
   <div class="wrap nav">
@@ -251,9 +202,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <main id="top">
 <section class="hero" style="padding-bottom:0">
-  <div class="wrap" style="position:relative">
-    <svg class="tag hero-tag spray-soft" viewBox="0 0 1000 420" aria-hidden="true"><text x="20" y="330" font-size="360" fill="#121110">A&amp;P</text></svg>
-    <svg class="tag hero-swoosh spray" viewBox="0 0 560 160" aria-hidden="true" fill="none"><path d="M10 70 C 120 120, 260 20, 390 60 S 520 110, 548 48" stroke="#D2321E" stroke-width="11" stroke-linecap="round"/><g><path d="M140 86 L140 116" stroke="#D2321E" stroke-width="3.5" stroke-linecap="round"/><circle cx="140" cy="119" r="3.15" fill="#D2321E"/><path d="M318 86 L318 134" stroke="#D2321E" stroke-width="3.5" stroke-linecap="round"/><circle cx="318" cy="137" r="3.15" fill="#D2321E"/><path d="M470 86 L470 112" stroke="#D2321E" stroke-width="3.5" stroke-linecap="round"/><circle cx="470" cy="115" r="3.15" fill="#D2321E"/></g></svg>
+  <div class="wrap">
     <div class="mono" style="margin-bottom:22px">A&amp;P Studio · Photography &amp; prints · Dallas, TX</div>
     <h1 class="slop" aria-label="F*ck your AI slop">
       <span class="cut a">F*CK</span> <span class="cut b">your</span><br>
@@ -285,7 +234,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <!-- COLLECTIONS -->
 <section id="work">
   <div class="wrap">
-<svg class="tag col-tag spray" viewBox="0 0 380 170" aria-hidden="true"><text x="10" y="110" font-size="104" fill="#D2321E">dallas'26</text><path d="M60 98 L60 120" stroke="#D2321E" stroke-width="3" stroke-linecap="round"/><circle cx="60" cy="123" r="2.7" fill="#D2321E"/><path d="M205 98 L205 136" stroke="#D2321E" stroke-width="3" stroke-linecap="round"/><circle cx="205" cy="139" r="2.7" fill="#D2321E"/><path d="M300 98 L300 116" stroke="#D2321E" stroke-width="3" stroke-linecap="round"/><circle cx="300" cy="119" r="2.7" fill="#D2321E"/></svg>
     <h2 class="h2">Collections </h2>
     <div class="cols">
       <a class="col" href="https://a-p-studio-shop.fourthwall.com/collections/all">
@@ -309,7 +257,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <!-- FEATURED PRINT -->
 <section id="prints" class="feat">
-  <svg class="tag feat-ghost spray-soft" viewBox="0 0 900 300" aria-hidden="true"><text x="0" y="230" font-size="250" fill="#EDE8DF">searching</text></svg>
   <div class="wrap feat-grid">
     <div class="print">
       <div class="sprockets t"></div>
@@ -325,7 +272,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <button class="on">12" × 18"</button>
         <button>18" × 24"</button>
       </div>
-      <div class="price">$90<svg class="tag price-ring spray" viewBox="0 0 160 110" aria-hidden="true" fill="none"><path d="M24 58 C 18 20, 130 8, 146 46 C 160 86, 52 104, 28 78 C 14 62, 40 30, 92 24" stroke="#F2C14E" stroke-width="5" stroke-linecap="round"/></svg></div>
+      <div class="price">$90</div>
       <a href="https://a-p-studio-shop.fourthwall.com/collections/all" class="btn">Add to cart ↗</a>
     </div>
   </div>
@@ -368,9 +315,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </section>
 
 <!-- SERVICES -->
-<section style="padding-bottom:40px;position:relative;overflow:hidden">
+<section style="padding-bottom:40px">
   <div class="wrap">
-<svg class="tag hire-tag spray" viewBox="0 0 340 160" aria-hidden="true"><text x="8" y="104" font-size="96" fill="#D2321E">for hire</text><path d="M48 92 L48 118" stroke="#D2321E" stroke-width="3" stroke-linecap="round"/><circle cx="48" cy="121" r="2.7" fill="#D2321E"/><path d="M176 92 L176 136" stroke="#D2321E" stroke-width="3" stroke-linecap="round"/><circle cx="176" cy="139" r="2.7" fill="#D2321E"/><path d="M262 92 L262 112" stroke="#D2321E" stroke-width="3" stroke-linecap="round"/><circle cx="262" cy="115" r="2.7" fill="#D2321E"/></svg>
     <h2 class="h2">Hire Paul</h2>
     <div class="svc">
       <div><span class="mono">01</span><h4>Advertising</h4><p>Photos for ads, campaigns and websites.</p></div>
@@ -383,8 +329,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <svg class="tag contact-arrow spray" viewBox="0 0 260 200" aria-hidden="true" fill="none"><path d="M14 30 C 90 10, 170 40, 200 130" stroke="#121110" stroke-width="7" stroke-linecap="round"/><path d="M168 112 L202 150 L226 104" stroke="#121110" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  <svg class="tag contact-tag spray" viewBox="0 0 320 140" aria-hidden="true"><text x="6" y="96" font-size="88" fill="#121110">hmu</text><path d="M40 86 L40 104" stroke="#121110" stroke-width="3" stroke-linecap="round"/><circle cx="40" cy="107" r="2.7" fill="#121110"/><path d="M150 86 L150 120" stroke="#121110" stroke-width="3" stroke-linecap="round"/><circle cx="150" cy="123" r="2.7" fill="#121110"/></svg>
   <div class="note">
     <span class="pin"></span>
     <h2>Got a project<br>in mind?</h2>
