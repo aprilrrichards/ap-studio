@@ -41,9 +41,9 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
 .hero-bg{position:absolute;inset:0}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,17,16,.15) 0%,rgba(18,17,16,.35) 45%,rgba(18,17,16,.92) 100%)}
 .hero-in{position:relative;z-index:3;width:100%;padding:0 34px 70px}
-.hero h1{font-size:clamp(64px,13.2vw,210px);color:var(--paper)}
+.hero h1{font-size:clamp(64px,13.2vw,210px);color:var(--paper);text-shadow:3px 4px 0 rgba(0,0,0,.55),0 8px 40px rgba(0,0,0,.75)}
 .hero h1 .r{color:var(--red)}
-.hero h1 .slop{display:inline-block;background:var(--paper);color:var(--ink);padding:.02em .08em 0;margin-top:.06em;line-height:.98;transform:rotate(-1.5deg)}
+.hero h1 .slop{text-shadow:none;box-shadow:6px 8px 0 rgba(0,0,0,.45),0 14px 40px rgba(0,0,0,.6);display:inline-block;background:var(--paper);color:var(--ink);padding:.02em .08em 0;margin-top:.06em;line-height:.98;transform:rotate(-1.5deg)}
 .hero .sub{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:22px;flex-wrap:wrap}
 .hero .sub p{max-width:430px;font-weight:600;font-size:16px;line-height:1.45}
 .hero .tg{position:absolute;font-size:clamp(38px,5vw,74px);color:var(--yel);transform:rotate(-6deg)}
@@ -51,7 +51,7 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
 .cut{position:absolute;z-index:2;border:5px solid var(--paper);box-shadow:0 18px 40px -12px rgba(0,0,0,.6)}
 .cut.c1{width:min(20vw,250px);aspect-ratio:3/4;right:5%;top:110px;transform:rotate(3deg)}
 .cut.c2{width:min(15vw,190px);aspect-ratio:3/4;right:calc(5% + min(19vw,240px));top:250px;transform:rotate(-5deg)}
-.cut.c3{width:min(11vw,140px);aspect-ratio:1;left:4%;top:100px;transform:rotate(-4deg)}
+.cut.c3{width:min(10vw,125px);aspect-ratio:1;left:4%;top:62px;transform:rotate(-4deg)}
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:"Big Shoulders Display";font-weight:900;text-transform:uppercase;font-size:20px;letter-spacing:.03em;padding:14px 24px;border-radius:999px;background:var(--paper);color:var(--ink);transition:.15s}
 .btn:hover{background:var(--red);color:var(--paper)}
 .btn.red{background:var(--red);color:var(--paper)}
