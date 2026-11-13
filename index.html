@@ -135,7 +135,16 @@ body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:999
 .mosaic .m.big{grid-column:span 3;grid-row:span 3}
 .mosaic .m.tall{grid-row:span 2}
 .mosaic .m.wide{grid-column:span 2}
-.mosaic .m.hide{display:none}
+.mosaic .m.hide{display:none!important}
+.mosaic .m{cursor:zoom-in}
+.more{display:none;justify-content:center;margin-top:18px}
+.more button{background:transparent;border:1.5px solid var(--paper);color:var(--paper);font:400 18px Anton;text-transform:uppercase;letter-spacing:.04em;padding:12px 26px;border-radius:999px;cursor:pointer}
+.lb{position:fixed;inset:0;z-index:1000;background:rgba(10,9,8,.94);display:none;align-items:center;justify-content:center;padding:60px 16px}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb button{position:absolute;background:none;border:0;color:var(--paper);font:400 34px Anton;cursor:pointer;padding:10px 16px}
+.lb .x{top:10px;right:10px}.lb .pv{left:4px;top:50%;transform:translateY(-50%)}.lb .nx{right:4px;top:50%;transform:translateY(-50%)}
+.lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;font:500 12px "IBM Plex Mono";text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
 
 /* hire list */
 .hire{padding:110px 0 120px;position:relative}
@@ -203,6 +212,13 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;paddin
   .mosaic .m{grid-column:span 1!important;grid-row:span 2!important}
   .mosaic .m.big,.mosaic .m.wide{grid-column:span 2!important}
   .filters{margin-top:-10px}
+  .sec-head{margin-bottom:30px}
+  .sec-head h2{font-size:clamp(64px,24vw,130px);line-height:.84;width:100%;overflow-wrap:normal}
+  .sec-head h2 .tag{font-size:.36em}
+  .about{padding-bottom:50px}
+  .prints{padding-top:30px}
+  .mosaic.clip .m:nth-child(n+9){display:none}
+  .more{display:flex}
   .row,.row:nth-child(even){grid-template-columns:44px 1fr 40px}
   .row .im{display:none}
   .row:nth-child(even) h3{text-align:left;order:2}
@@ -291,7 +307,7 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;paddin
   <div class="wrap">
     <div class="sec-head"><h2 class="big">The gallery</h2><span class="mono" style="color:var(--muted)">22 frames</span></div>
     <div class="filters"><button data-f="all" class=on>All</button><button data-f="street">Street</button><button data-f="still">Still life</button><button data-f="cine">Cinematic</button><button data-f="night">Night</button><button data-f="depths">From the Depths</button></div>
-    <div class="mosaic">
+    <div class="mosaic clip">
       <div class="im m big" data-cat="cine" style="background-image:url(img/cine-window.jpg)" role="img" aria-label="Two girls at a window, staged scene"></div>
       <div class="im m tall" data-cat="street" style="background-image:url(img/street-escalator.jpg)" role="img" aria-label="Escalator"></div>
       <div class="im m " data-cat="still" style="background-image:url(img/still-bear.jpg)" role="img" aria-label="Bear in wire"></div>
@@ -313,10 +329,12 @@ footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;paddin
       <div class="im m wide" data-cat="depths" style="background-image:url(img/depths-bass.jpg)" role="img" aria-label="Bass"></div>
       <div class="im m " data-cat="street" style="background-image:url(img/dallas-green.jpg)" role="img" aria-label="Green wall"></div>
       <div class="im m " data-cat="depths" style="background-image:url(img/depths-catfish.jpg)" role="img" aria-label="Catfish"></div>
-      <div class="im m " data-cat="street" style="background-image:url(img/dallas-buildings.jpg)" role="img" aria-label="Downtown"></div>
+      <div class="im m tall" data-cat="street" style="background-image:url(img/dallas-buildings.jpg)" role="img" aria-label="Downtown"></div>
     </div>
+    <div class="more"><button type="button">See all 22 frames ↓</button></div>
   </div>
 </section>
+<div class="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" aria-label="Close">✕</button><button class="pv" aria-label="Previous">‹</button><img alt=""><button class="nx" aria-label="Next">›</button><div class="cap"></div></div>
 
 <svg class="torn" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60 L0 29 L17 37 L25 8 L37 20 L56 38 L71 33 L88 14 L101 15 L122 11 L141 11 L158 23 L170 45 L176 11 L197 30 L204 51 L226 13 L238 14 L249 35 L258 39 L265 16 L284 26 L297 34 L310 25 L317 40 L338 51 L355 24 L367 38 L383 13 L393 24 L407 44 L421 9 L440 27 L455 18 L468 25 L486 13 L501 16 L518 10 L528 23 L545 10 L558 17 L568 29 L590 29 L611 15 L632 24 L641 41 L661 8 L672 42 L683 19 L689 10 L705 51 L727 30 L734 22 L752 45 L768 18 L783 29 L799 20 L820 47 L829 21 L849 20 L870 31 L887 39 L896 21 L906 38 L923 14 L944 26 L953 27 L975 33 L991 48 L1013 41 L1025 34 L1046 43 L1061 23 L1073 40 L1088 9 L1105 48 L1124 47 L1145 32 L1163 25 L1171 24 L1182 49 L1199 32 L1215 13 L1229 39 L1242 19 L1254 22 L1271 14 L1278 22 L1296 41 L1312 49 L1324 9 L1338 28 L1347 37 L1358 18 L1369 50 L1376 24 L1386 17 L1399 18 L1420 30 L1437 15 L1440 35 L1440 60 Z" fill="#EDE8DF"/></svg>
 
@@ -364,6 +382,17 @@ document.querySelectorAll('.filters button').forEach(function(b){b.addEventListe
  document.querySelectorAll('.filters button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
  var f=b.dataset.f;document.querySelectorAll('.mosaic .m').forEach(function(m){m.classList.toggle('hide',f!=='all'&&m.dataset.cat!==f)});
 })});
+var mo=document.querySelector('.more button'),mz=document.querySelector('.mosaic');
+mo.addEventListener('click',function(){mz.classList.remove('clip');mo.parentNode.style.display='none'});
+document.querySelectorAll('.filters button').forEach(function(b){b.addEventListener('click',function(){if(b.dataset.f!=='all'){mz.classList.remove('clip');mo.parentNode.style.display='none'}})});
+var lb=document.querySelector('.lb'),li=lb.querySelector('img'),lc=lb.querySelector('.cap'),cur=[],ix=0;
+function show(){var m=cur[ix];li.src=m.style.backgroundImage.slice(5,-2);li.alt=m.getAttribute('aria-label');lc.textContent=(ix+1)+' / '+cur.length+' · '+li.alt}
+document.querySelectorAll('.mosaic .m').forEach(function(m){m.addEventListener('click',function(){cur=[].slice.call(document.querySelectorAll('.mosaic .m:not(.hide)'));ix=cur.indexOf(m);show();lb.classList.add('open');document.body.style.overflow='hidden'})});
+function close(){lb.classList.remove('open');document.body.style.overflow=''}
+lb.querySelector('.x').onclick=close;lb.onclick=function(e){if(e.target===lb)close()};
+lb.querySelector('.pv').onclick=function(){ix=(ix-1+cur.length)%cur.length;show()};lb.querySelector('.nx').onclick=function(){ix=(ix+1)%cur.length;show()};
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')lb.querySelector('.nx').click();if(e.key==='ArrowLeft')lb.querySelector('.pv').click()});
+var tx=0;lb.addEventListener('touchstart',function(e){tx=e.touches[0].clientX});lb.addEventListener('touchend',function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)(d<0?lb.querySelector('.nx'):lb.querySelector('.pv')).click()});
 </script>
 </body>
 </html>
