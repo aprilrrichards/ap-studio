@@ -184,6 +184,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .tabs{margin:34px -26px 0}
   .tabs a{height:120px}
 }
+
+/* spray paint texture, original artwork */
+.wall{position:relative;isolation:isolate}
+.wall::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:url(img/spray-dark.png) no-repeat;opacity:.08}
+.wall-hero::before{background-size:900px;background-position:right -260px top -120px}
+.wall-work::before{background-size:780px;background-position:left -300px bottom -160px;opacity:.07}
+.wall-contact::before{background-size:820px;background-position:right -240px center;opacity:.09}
+.feat.wall::before{background-image:url(img/spray-light.png);background-size:1000px;background-position:center right -200px;opacity:.12}
+.feat .wrap{position:relative}
+@media(max-width:860px){
+  .wall-hero::before{background-size:560px;background-position:right -220px top 120px}
+  .wall-work::before{background-size:520px;background-position:left -220px top 40px}
+  .wall-contact::before{background-size:520px;background-position:right -200px top 20px}
+  .feat.wall::before{background-size:640px;background-position:right -240px top 0}
+}
 </style>
 </head>
 <body>
@@ -201,7 +216,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </header>
 
 <main id="top">
-<section class="hero" style="padding-bottom:0">
+<section class="hero wall wall-hero" style="padding-bottom:0;overflow:hidden">
   <div class="wrap">
     <div class="mono" style="margin-bottom:22px">A&amp;P Studio · Photography &amp; prints · Dallas, TX</div>
     <h1 class="slop" aria-label="F*ck your AI slop">
@@ -232,7 +247,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </section>
 
 <!-- COLLECTIONS -->
-<section id="work">
+<section id="work" class="wall wall-work">
   <div class="wrap">
     <h2 class="h2">Collections </h2>
     <div class="cols">
@@ -256,7 +271,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </section>
 
 <!-- FEATURED PRINT -->
-<section id="prints" class="feat">
+<section id="prints" class="feat wall">
   <div class="wrap feat-grid">
     <div class="print">
       <div class="sprockets t"></div>
@@ -328,7 +343,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section class="contact wall wall-contact" id="contact">
   <div class="note">
     <span class="pin"></span>
     <h2>Got a project<br>in mind?</h2>
